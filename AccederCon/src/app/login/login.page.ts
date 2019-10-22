@@ -79,12 +79,12 @@ export class LoginPage implements OnInit {
   }
 
 
-  async login() {
+  async loginGoogle() {
     let params;
     if (this.platform.is('android')) {
       params = {
         //'scopes': 'dashboard',
-        'webClientId': '829303133516-imsie783umhes9fudnih39uinv9i3ue2.apps.googleusercontent.com',
+        'webClientId': '475145151107-64vsm1rqmqq3fsnlbagthbb8r85jlidt.apps.googleusercontent.com',
         'offline': true
       }
     }
@@ -107,6 +107,7 @@ export class LoginPage implements OnInit {
             .credential(accessToken);
     this.fireAuth.auth.signInWithCredential(credential)
       .then((response) => {
+        alert(JSON.stringify(response));
         this.router.navigate(["/dashboard"]);
         this.loading.dismiss();
       })

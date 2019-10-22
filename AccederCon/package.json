@@ -1,5 +1,5 @@
 {
-  "name": "AccederCon",
+  "name": "accedercon",
   "version": "0.0.1",
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
@@ -27,11 +27,12 @@
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^4.7.1",
+    "angularfire2": "^5.2.1",
     "cordova-android": "8.1.0",
     "cordova-plugin-googleplus": "^8.1.2",
     "cordova-plugin-nativestorage": "^2.3.2",
     "core-js": "^2.5.4",
-    "firebase": "^7.1.0",
+    "firebase": "^7.2.1",
     "rxjs": "~6.5.1",
     "tslib": "^1.9.0",
     "zone.js": "~0.9.1"
@@ -80,8 +81,7 @@
       },
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "OIu_bMl_KcjITJKtpezOmj8g",
-        "WEB_APPLICATION_CLIENT_ID": "829303133516-imsie783umhes9fudnih39uinv9i3ue2.apps.googleusercontent.com"
+        "WEB_APPLICATION_CLIENT_ID": "475145151107-64vsm1rqmqq3fsnlbagthbb8r85jlidt.apps.googleusercontent.com"
       },
       "cordova-plugin-nativestorage": {}
     },
