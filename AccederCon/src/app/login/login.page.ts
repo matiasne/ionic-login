@@ -83,7 +83,7 @@ export class LoginPage implements OnInit {
     let params;
     if (this.platform.is('android')) {
       params = {
-        'scopes': 'dashboard',
+        //'scopes': 'dashboard',
         'webClientId': '829303133516-imsie783umhes9fudnih39uinv9i3ue2.apps.googleusercontent.com',
         'offline': true
       }
@@ -93,6 +93,7 @@ export class LoginPage implements OnInit {
     }
     this.google.login(params)
       .then((response) => {
+        
         const { idToken, accessToken } = response
         this.onLoginSuccess(idToken, accessToken);
       }).catch((error) => {
