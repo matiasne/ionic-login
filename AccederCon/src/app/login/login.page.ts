@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import * as firebase from 'firebase';
+import { Facebook, FacebookLoginResponse } from '@ionic-native/facebook/ngx';
 
  
 @Component({
@@ -28,6 +29,7 @@ export class LoginPage implements OnInit {
     private platform: Platform,
     private google:GooglePlus,
     public loadingController: LoadingController,
+    private fb: Facebook,
     private fireAuth: AngularFireAuth
  
   ) { }
@@ -113,12 +115,41 @@ export class LoginPage implements OnInit {
       })
 
   }
+  
+  
+  async loginFB() {
+
+    this.fb.login(['email'])
+      .then((response: FacebookLoginResponse) => {
+        this.onLoginSuccessFB(response);
+        console.log(response.authResponse.accessToken);
+      }).catch((error) => {
+        console.log(error)
+        alert('error:' + error)
+      });
+  }
+   
+  onLoginSuccessFB(res: FacebookLoginResponse) {
+    
+    // const { token, secret } = res;
+    const credential = firebase.auth.FacebookAuthProvider.credential(res.authResponse.accessToken);
+    this.fireAuth.auth.signInWithCredential(credential)
+      .then((response) => {
+        alert(JSON.stringify(response));
+        this.router.navigate(["/dashboard"]);
+        this.loading.dismiss();
+      })
+      .catch((error)=>{
+        alert('error:' + error);
+      })
+
+  }
+
   onLoginError(err) {
+    alert('error:' + err);
     console.log(err);
   }
   
-  
-    
   
   
 

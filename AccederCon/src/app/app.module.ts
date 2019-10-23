@@ -13,7 +13,7 @@ import { AuthenticateService } from './services/authentication.service';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireModule } from '@angular/fire';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
- 
+import { Facebook } from '@ionic-native/facebook/ngx';
 import * as firebase from 'firebase';
 import { ReactiveFormsModule } from '@angular/forms';
  
@@ -35,6 +35,7 @@ firebase.initializeApp(environment.firebase);
     SplashScreen,
     AuthenticateService,
     GooglePlus,
+    Facebook,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
